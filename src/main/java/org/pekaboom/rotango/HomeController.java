@@ -9,6 +9,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.servlet.ModelAndView;
 
 @Controller
 public class HomeController {
@@ -31,7 +32,11 @@ public class HomeController {
 	
 	@GetMapping("/{screen}")
 	@ResponseBody
-	public String name(@PathVariable String screen) {
-		return "You are viewing "+screen;
+	public ModelAndView name(@PathVariable String screen) {
+		ModelAndView mv = new ModelAndView();
+		String result = "You are viewing "+screen;
+		mv.addObject("screen", result);
+		mv.setViewName("screen.jsp");
+		return mv;
 	}
 }
