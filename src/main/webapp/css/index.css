@@ -1,0 +1,83 @@
+html, body, .container-fluid, #page-loader {
+	width: 100%;
+	height: 100%;
+	min-height: 350px;
+	padding: 0px;
+}
+#page-loader {
+	display: flex;
+	padding: 0 20px;
+	margin: 0 auto;
+	background: white;
+	flex-direction: column;
+	position: fixed;
+	top: 0;
+	left: 0;
+	z-index: 1000;
+}
+.theme-bg-color {
+	background: linear-gradient(to right, #fb29da 0%, #ff0c67 100%);
+	background: -webkit-linear-gradient(to right, #fb29da 0%, #ff0c67 100%);
+}
+.loader-container {
+	display: flex;
+	align-items: center;
+	position: relative;
+	left: -15px;
+	transform:  scale(0.6);
+	top: -75px;
+}
+.loader-indicator {
+	display: block;
+	width: 18px;
+	height: 20px;
+	position: relative;
+	top: -50px;
+	left: 12px;
+	background: linear-gradient(to right, #fb29da 0%, #ff0c67 100%);
+	background: -webkit-linear-gradient(to right, #fb29da 0%, #ff0c67 100%);
+	border-radius: 16px;
+	margin: 0 10px;
+	transform: rotate(25deg);
+	transition-duration: 2s;
+	animation-name: animate_line;
+	animation-duration: 2s;
+	animation-iteration-count: infinite;
+	animation-direction: alternate;
+	animation-timing-function: linear;
+}
+.loader-indicator.l1 {
+	animation-delay: 0s;
+}
+.loader-indicator.l2 {
+	animation-delay: 0.5s;
+}
+.loader-indicator.l3 {
+	animation-delay: 0.8s;
+}
+.loader-indicator.l4 {
+	animation-delay: 0.2s;
+}
+
+@keyframes animate_line {
+	0% {
+		height: 20px;
+		top: -50px;
+		left: 12px;
+	}
+	50% {
+		height: 80px;
+		top: -80px;
+		left: 25px; 
+	}
+	96% {
+		height: 20px;
+		top: -102px;
+		left: 35px;
+	}
+	100% {
+		height: 20px;
+		top: -102px;
+		left: 35px;
+	}
+}
