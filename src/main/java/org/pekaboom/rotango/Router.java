@@ -1,17 +1,10 @@
 package org.pekaboom.rotango;
-
-import java.awt.PageAttributes.MediaType;
-import java.io.BufferedReader;
-import java.io.FileInputStream;
 import java.io.IOException;
-import java.io.InputStreamReader;
-import java.util.Set;
 
 import javax.servlet.http.HttpServletRequest;
 
 import org.pekaboom.rotango.modules.AppConfig;
 import org.pekaboom.rotango.modules.FileLoader;
-import org.pekaboom.rotango.modules.Profile;
 import org.pekaboom.rotango.modules.User;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
@@ -23,17 +16,29 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 @Controller
-public class HomeController {
+public class Router {
 	
 	ApplicationContext context = new AnnotationConfigApplicationContext(AppConfig.class);
 	User user = context.getBean(User.class);
-	
+
 	@SuppressWarnings("resource")
 	@GetMapping("/")
-	public String welcome() {
-		return "index.jsp";
+	public ModelAndView welcome() {
+		ModelAndView mv = new ModelAndView();
+		mv.addObject("hello", "Hello User!");
+		mv.setViewName("index.jsp");
+		return mv;
 	}
-	
+
+	@SuppressWarnings("resource")
+	@GetMapping("/app")
+	public ModelAndView app() {
+		ModelAndView mv = new ModelAndView();
+		mv.addObject("hello", "Hello User!");
+		mv.setViewName("index.jsp");
+		return mv;
+	}
+
 	@GetMapping("/images/{file}")
 	@RequestMapping(produces="image/png")
 	@ResponseBody

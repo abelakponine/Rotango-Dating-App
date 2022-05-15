@@ -58,27 +58,22 @@ public class User implements UserActions {
 		this.nationality = nationality;
 	}
 
-	@Override
 	public void swipeRight() {
 		System.out.print("Swiped Right");
 	}
 
-	@Override
 	public void swipeLeft() {
 		System.out.print("Swiped Left");
 	}
 
-	@Override
 	public void blockAnotherUser() {
 		System.out.print("Another User is Blocked");
 	}
 
-	@Override
 	public void unBlockAnotherUser() {
 		System.out.print("Another User is Unblocked");
 	}
 
-	@Override
 	public void undoLastLeftSwipe() {
 		System.out.print("Last Left Swipe Undone");
 	}
